@@ -22,6 +22,8 @@ services:
   redis:
     image: redis:7.4
     restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
     ports:
       - "127.0.0.1:6379:6379"
     volumes:
@@ -41,6 +43,7 @@ services:
       redis:
         condition: service_healthy
     environment:
+      TZ: Asia/Shanghai
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: blog
       SPRING_DATASOURCE_PASSWORD: blog_password
