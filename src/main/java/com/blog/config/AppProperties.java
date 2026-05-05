@@ -1,0 +1,12 @@
+package com.blog.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "app")
+public record AppProperties(
+        String uploadRoot,
+        long tokenTtlSeconds,
+        String adminUsername,
+        String adminPassword
+) {
+}

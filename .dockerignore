@@ -1,0 +1,15 @@
+target/
+data/
+.git/
+.github/
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+*.swp
+node_modules/
+dist/

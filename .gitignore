@@ -1,0 +1,31 @@
+# Build outputs
+target/
+*.class
+
+# Runtime data and uploads
+data/
+uploads/
+logs/
+*.log
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.pid
+hs_err_pid*
+replay_pid*
