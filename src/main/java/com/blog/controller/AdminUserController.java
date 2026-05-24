@@ -42,4 +42,9 @@ public class AdminUserController {
     public ApiResponse<Boolean> changePassword(@Valid @RequestBody Requests.AdminPasswordRequest request) {
         return ApiResponse.success(userService.changeAdminPassword(request));
     }
+
+    @PatchMapping("/me/profile")
+    public ApiResponse<Views.UserView> updateProfile(@Valid @RequestBody Requests.AdminProfileRequest request) {
+        return ApiResponse.success(userService.updateAdminProfile(request));
+    }
 }

@@ -68,6 +68,17 @@ public class UserService {
         return true;
     }
 
+    @Transactional
+    public Views.UserView updateAdminProfile(Requests.AdminProfileRequest request) {
+        User admin = userMapper.selectById(AuthContext.currentUserId());
+        if (admin == null || admin.getDeletedAt() != null || admin.getRole() != UserRole.ADMIN) {
+            throw new BizException(ErrorCode.UNAUTHORIZED, "unauthorized");
+        }
+        admin.setNickname(request.nickname());
+        userMapper.updateById(admin);
+        return authService.toUserView(admin);
+    }
+
     private User getGuest(Long id) {
         User user = userMapper.selectById(id);
         if (user == null || user.getDeletedAt() != null || user.getRole() != UserRole.GUEST) {

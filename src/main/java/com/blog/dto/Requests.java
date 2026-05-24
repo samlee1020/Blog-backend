@@ -81,6 +81,9 @@ public final class Requests {
     ) {
     }
 
+    public record AdminProfileRequest(@NotBlank @Size(min = 1, max = 64) String nickname) {
+    }
+
     public record LinkItem(
             @NotBlank String label,
             @NotBlank String url,
